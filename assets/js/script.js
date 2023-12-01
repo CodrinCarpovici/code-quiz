@@ -5,6 +5,7 @@ import questions from './questions.js';
 // Quiz Elements
 const question = document.createElement("div");
 const answer = document.createElement("span");
+const answer2 = document.createElement("span");
 
 // Event Listener for start button
 
