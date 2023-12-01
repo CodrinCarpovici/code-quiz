@@ -3,15 +3,16 @@ import questions from './questions.js';
 // Quiz Variables
 
 // Quiz Elements
-const question = document.createElement("div");
-const answer = document.createElement("span");
-const answer2 = document.createElement("span");
-
-// Event Listener for start button
-
-// Event Listener for option click
+const startButton = document.querySelector("#start");
 
 // Function to start the quiz
+const startQuiz = () => {
+}
+
+// Event Listener for start button
+startButton.addEventListener("click", startQuiz)
+
+// Event Listener for option click
 
 // Function to end the quiz
 
