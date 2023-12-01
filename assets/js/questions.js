@@ -1,4 +1,4 @@
-let questions = [
+const questions = [
     {
       question: "What is JavaScript?",
       answer: "A programming language for client-side scripting",
@@ -33,7 +33,7 @@ let questions = [
       question: "How do you comment in JavaScript?",
       answer: "// This is a comment",
       options: [
-        "COMMENT = This is a comment",
+        "var COMMENT = This is a comment",
         "// This is a comment",
         "# This is a comment",
         "-- This is a comment",
@@ -100,3 +100,5 @@ let questions = [
       ],
     },
   ];  
+
+  export default questions;
