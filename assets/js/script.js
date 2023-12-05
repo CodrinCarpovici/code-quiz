@@ -22,6 +22,8 @@ const feedback = document.querySelector("#feedback");
 
 // Function to start the quiz
 const startQuiz = () => {
+    startScreen.classList.add("hide");
+    questionScreen.classList.remove("hide");
 }
 
 // Event Listener for start button
