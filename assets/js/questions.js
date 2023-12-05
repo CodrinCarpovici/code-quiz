@@ -264,7 +264,7 @@ const questions = [
     question:
       "What is the output of the following code:\n\nconsole.log('5' + 5);",
     answer: '"55"',
-    choices: ['"10"', "10", '"55"', "Error"],
+    choices: ['"15"', "10", '"55"', "Error"],
   },
 ];
 
