@@ -6,13 +6,16 @@ const highscoresList = document.querySelector("#highscores");
 const clearButton = document.querySelector("#clear");
 
 // Display Highscores
-for (let e of highscores) {
-    const scoreLi = document.createElement("li")
+const displayHighscores = () => {
+  for (let e of highscores) {
+    const scoreLi = document.createElement("li");
     scoreLi.textContent = e.initials + " - " + e.score;
     highscoresList.appendChild(scoreLi);
-}
+  }
+};
 
 // Clear Highscores
 clearButton.addEventListener("click", () => {
-    localStorage.clear();
-})
+  localStorage.clear();
+  displayHighscores();
+});
