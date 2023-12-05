@@ -2,7 +2,7 @@ import questions from './questions.js';
 
 // Quiz Variables
 let question, choice, answer, score, timerInterval;
-let currentQuestion = 0;
+let currentQuestionIn = 0;
 
 
 // Quiz Elements
@@ -35,12 +35,24 @@ const startQuiz = () => {
     // Start the timer
     startTimer();
 
-    // Display first question
+    // Display question
     displayQuestion();
 }
 
 // Function to Display Question
+const displayQuestion = () => {
+    // Check if ther eis any more questions
+    if (currentQuestionIn < questions.length) {
+        // Assign current questions index value to the current question
+        question = questions[currentQuestionIn];
 
+        // Update the title
+
+        // Clear the previous choices
+
+        // Create current choices and a button for each
+    }
+}
 // Event Listener for start button
 startButton.addEventListener("click", startQuiz)
 
