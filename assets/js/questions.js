@@ -227,8 +227,8 @@ const questions = [
   {
     question:
       "What is the output of the following code:\n\nconsole.log(typeof NaN);",
-    answer: "number",
-    choices: ["number", "string", "undefined", "NaN"],
+    answer: '"number"',
+    choices: ['"number"', '"string"', '"undefined"', '"NaN"'],
   },
   {
     question:
@@ -246,7 +246,7 @@ const questions = [
     question:
       "What is the output of the following code:\n\nvar x = 10;\nvar y = '5';\nconsole.log(x - y);",
     answer: "5",
-    choices: ["5", "10", "15", "105"],
+    choices: ["5", "10", "15", '"105"'],
   },
   {
     question:
@@ -264,7 +264,7 @@ const questions = [
     question:
       "What is the output of the following code:\n\nconsole.log('5' + 5);",
     answer: '"55"',
-    choices: ["10", "10", "55", "Error"],
+    choices: ['"10"', "10", '"55"', "Error"],
   },
 ];
 
