@@ -13,3 +13,6 @@ for (let e of highscores) {
 }
 
 // Clear Highscores
+clearButton.addEventListener("click", () => {
+    localStorage.clear();
+})
