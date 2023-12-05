@@ -18,6 +18,11 @@ const initials = document.querySelector("#initials");
 const submitButton = document.querySelector("#submit");
 const feedback = document.querySelector("#feedback");
 
+// Function to shuffle an array
+const shuffleArray = (array) => {
+  return array.slice().sort(() => Math.random() - 0.5);
+};
+
 // Function to start the quiz
 const startQuiz = () => {
   // Hide Start Screen and show Question Screen
@@ -38,11 +43,6 @@ const startQuiz = () => {
   displayQuestion();
 };
 
-// Function to shuffle an array
-const shuffleArray = (array) => {
-  return array.slice().sort(() => Math.random() - 0.5);
-};
-
 // Function to Display Question
 const displayQuestion = () => {
   // Check if ther eis any more questions
@@ -53,11 +53,14 @@ const displayQuestion = () => {
     // Update the title
     questionTitle.textContent = question.question;
 
+    // Shuffle the order of choices
+    const shuffledChoices = shuffleArray(question.choices);
+
     // Clear the previous choices
     choices.innerHTML = "";
 
     // Create current choices and a button for each
-    for (let choice of question.choices) {
+    for (let choice of shuffledChoices) {
       const choiceButton = document.createElement("button");
       choiceButton.textContent = choice;
 
