@@ -3,6 +3,7 @@ import questions from "./questions.js";
 // Quiz Variables
 let question, score, timerInterval;
 let currentQuestionIndex = 0;
+let shuffledQuestions = [];
 
 // Quiz Elements
 const time = document.querySelector("#time");
@@ -23,9 +24,12 @@ const startQuiz = () => {
   startScreen.classList.add("hide");
   questionScreen.classList.remove("hide");
 
+  // Shuffle questions and select the first 10
+  shuffledQuestions = shuffleArray(questions).slice(0, 10);
+
   // Set initial values for score and time
   score = 0;
-  time.textContent = questions.length * 20;
+  time.textContent = shuffledQuestions.length * 20;
 
   // Start the timer
   startTimer();
@@ -34,12 +38,17 @@ const startQuiz = () => {
   displayQuestion();
 };
 
+// Function to shuffle an array
+const shuffleArray = (array) => {
+  return array.slice().sort(() => Math.random() - 0.5);
+};
+
 // Function to Display Question
 const displayQuestion = () => {
   // Check if ther eis any more questions
-  if (currentQuestionIndex < questions.length) {
+  if (currentQuestionIndex < shuffledQuestions.length) {
     // Assign current questions index value to the current question
-    question = questions[currentQuestionIndex];
+    question = shuffledQuestions[currentQuestionIndex];
 
     // Update the title
     questionTitle.textContent = question.question;
