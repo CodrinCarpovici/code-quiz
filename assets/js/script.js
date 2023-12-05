@@ -2,7 +2,7 @@ import questions from "./questions.js";
 
 // Quiz Variables
 let question, choice, answer, score, timerInterval;
-let currentQuestionIn = 0;
+let currentQuestionIndex = 0;
 
 // Quiz Elements
 const scores = document.querySelector(".scores");
@@ -41,9 +41,12 @@ const startQuiz = () => {
 // Function to Display Question
 const displayQuestion = () => {
   // Check if ther eis any more questions
-  if (currentQuestionIn < questions.length) {
+  if (currentQuestionIndex < questions.length) {
     // Assign current questions index value to the current question
-    question = questions[currentQuestionIn];
+    question = questions[currentQuestionIndex];
+
+    //Hide feedback
+    feedback.classList.add("hide");
 
     // Update the title
     questionTitle.textContent = question.question;
@@ -60,7 +63,7 @@ const displayQuestion = () => {
       choiceButton.addEventListener("click", () =>
         checkAnswer(question.choices.indexOf(choice))
       );
-        
+
       //Append buttons to the choices section
       choices.appendChild(choiceButton);
     }
@@ -70,17 +73,33 @@ const displayQuestion = () => {
   }
 };
 
+// Function to check the answer
+const checkAnswer = (choiceIndex) => {
+  if (question.choices[choiceIndex] === question.answer) {
+    // Correct answer
+    score += 10;
+    // Display feedback
+    feedback.classList.remove("hide");
+    feedback.textContent = "Correct!";
+  } else {
+    // Wrong answer, lose 5 seconds on time
+    time.textContent = Math.max(0, parseInt(time.textContent) - 5);
+    // Display feedback
+    feedback.classList.remove("hide");
+    feedback.textContent = "Wrong!";
+  }
+
+  // Go to next question after answer is clicked
+  currentQuestionIndex++;
+  displayQuestion();
+};
 
 // Function to end the quiz
-const endQuiz = () => {
-    
-}
+const endQuiz = () => {};
 // Function to keep track of Score
 
 // Function to Update Timer
-const startTimer = () => {
-    
-}
+const startTimer = () => {};
 
 // Event Listener for start button
 startButton.addEventListener("click", startQuiz);
