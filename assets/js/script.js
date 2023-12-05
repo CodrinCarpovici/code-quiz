@@ -5,10 +5,6 @@ let question, score, timerInterval;
 let currentQuestionIndex = 0;
 
 // Quiz Elements
-const scores = document.querySelector(".scores");
-const highscoresList = document.querySelector("#highscores");
-const clearButton = document.querySelector("#clear");
-const timer = document.querySelector(".timer");
 const time = document.querySelector("#time");
 const startScreen = document.querySelector("#start-screen");
 const startButton = document.querySelector("#start");
