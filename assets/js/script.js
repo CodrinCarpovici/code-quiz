@@ -1,9 +1,8 @@
-import questions from './questions.js';
+import questions from "./questions.js";
 
 // Quiz Variables
 let question, choice, answer, score, timerInterval;
 let currentQuestionIn = 0;
-
 
 // Quiz Elements
 const scores = document.querySelector(".scores");
@@ -24,47 +23,64 @@ const feedback = document.querySelector("#feedback");
 
 // Function to start the quiz
 const startQuiz = () => {
-    // Hide Start Screen and show Question Screen
-    startScreen.classList.add("hide");
-    questionScreen.classList.remove("hide");
+  // Hide Start Screen and show Question Screen
+  startScreen.classList.add("hide");
+  questionScreen.classList.remove("hide");
 
-    // Set initial values for score and time
-    score = 0;
-    time.textContent = questions.length * 20;
+  // Set initial values for score and time
+  score = 0;
+  time.textContent = questions.length * 20;
 
-    // Start the timer
-    startTimer();
+  // Start the timer
+  startTimer();
 
-    // Display question
-    displayQuestion();
-}
+  // Display question
+  displayQuestion();
+};
 
 // Function to Display Question
 const displayQuestion = () => {
-    // Check if ther eis any more questions
-    if (currentQuestionIn < questions.length) {
-        // Assign current questions index value to the current question
-        question = questions[currentQuestionIn];
+  // Check if ther eis any more questions
+  if (currentQuestionIn < questions.length) {
+    // Assign current questions index value to the current question
+    question = questions[currentQuestionIn];
 
-        // Update the title
-        questionTitle.textContent = question.question;
+    // Update the title
+    questionTitle.textContent = question.question;
 
-        // Clear the previous choices
-        choices.innerHTML = "";
+    // Clear the previous choices
+    choices.innerHTML = "";
 
-        // Create current choices and a button for each
-        for (e of question.choices) {
-            
-        }
+    // Create current choices and a button for each
+    for (let choice of question.choices) {
+      const choiceButton = document.createElement("button");
+      choiceButton.textContent = choice;
+
+      // Event Listener for option click
+      choiceButton.addEventListener("click", () =>
+        checkAnswer(question.choices.indexOf(choice))
+      );
+        
+      //Append buttons to the choices section
+      choices.appendChild(choiceButton);
     }
-}
-// Event Listener for start button
-startButton.addEventListener("click", startQuiz)
+  } else {
+    //If no more questions in the array then end the quiz
+    endQuiz();
+  }
+};
 
-// Event Listener for option click
 
 // Function to end the quiz
-
+const endQuiz = () => {
+    
+}
 // Function to keep track of Score
 
 // Function to Update Timer
+const startTimer = () => {
+    
+}
+
+// Event Listener for start button
+startButton.addEventListener("click", startQuiz);
