@@ -96,7 +96,14 @@ const checkAnswer = (choiceIndex) => {
 
 // Function to end the quiz
 const endQuiz = () => {
-    
+    clearInterval(timerInterval);
+
+    // Display the end screen
+    questionScreen.classList.add("hide");
+    endScreen.classList.remove("hide");
+
+    // Display the final score
+    finalScore.textContent = score;
 };
 
 // Function to Update Timer
