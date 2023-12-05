@@ -95,11 +95,21 @@ const checkAnswer = (choiceIndex) => {
 };
 
 // Function to end the quiz
-const endQuiz = () => {};
-// Function to keep track of Score
+const endQuiz = () => {
+    
+};
 
 // Function to Update Timer
-const startTimer = () => {};
+const startTimer = () => {
+  timerInterval = setInterval(() => {
+    const currentTime = parseInt(time.textContent);
+    if (currentTime > 0) {
+      time.textContent = currentTime - 1;
+    } else {
+      endQuiz();
+    }
+  }, 1000);
+};
 
 // Event Listener for start button
 startButton.addEventListener("click", startQuiz);
