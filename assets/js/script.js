@@ -1,6 +1,7 @@
 import questions from './questions.js';
 
 // Quiz Variables
+let question, choice, answer, score;
 
 // Quiz Elements
 const scores = document.querySelector(".scores");
@@ -10,7 +11,7 @@ const timer = document.querySelector(".timer");
 const time = document.querySelector("#time");
 const startScreen = document.querySelector("#start-screen");
 const startButton = document.querySelector("#start");
-const quiz = document.querySelector("#questions");
+const questionScreen = document.querySelector("#questions");
 const questionTitle = document.querySelector("#question-title");
 const choices = document.querySelector("#choices");
 const endScreen = document.querySelector("#end-screen");

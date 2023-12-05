@@ -2,7 +2,7 @@ const questions = [
     {
       question: "What is JavaScript?",
       answer: "A programming language for client-side scripting",
-      options: [
+      choices: [
         "A script for Java",
         "A style sheet language",
         "A markup language",
@@ -12,7 +12,7 @@ const questions = [
     {
       question: "How do you declare a variable in JavaScript?",
       answer: "let myVariable = 10;",
-      options: [
+      choices: [
         "var myVariable = 10;",
         "variable myVariable = 10;",
         "let myVariable = 10;",
@@ -22,7 +22,7 @@ const questions = [
     {
       question: "What is the difference between 'let', 'const', and 'var'?",
       answer: "'let' is block-scoped, 'const' is block-scoped, and 'var' is function-scoped.",
-      options: [
+      choices: [
         "'let' is block-scoped, 'const' is block-scoped, and 'var' is function-scoped.",
         "'let' is function-scoped, 'const' is block-scoped, and 'var' is block-scoped.",
         "'let' is block-scoped, 'const' is function-scoped, and 'var' is block-scoped.",
@@ -32,7 +32,7 @@ const questions = [
     {
       question: "How do you comment in JavaScript?",
       answer: "// This is a comment",
-      options: [
+      choices: [
         "var COMMENT = This is a comment",
         "// This is a comment",
         "# This is a comment",
@@ -42,7 +42,7 @@ const questions = [
     {
       question: "Explain the concept of arrays in JavaScript.",
       answer: "A data structure for storing a list of elements",
-      options: [
+      choices: [
         "A method for looping over objects",
         "A way to declare variables",
         "A data structure for storing key-value pairs",
@@ -52,7 +52,7 @@ const questions = [
     {
       question: "How do you create and call a function in JavaScript?",
       answer: "function myFunction() { } / myFunction();",
-      options: [
+      choices: [
         "function myFunction() { } / myFunction();",
         "def myFunction() {} / call myFunction();",
         "function => myFunction() {} / runFunction(function);",
@@ -62,7 +62,7 @@ const questions = [
     {
       question: "Explain the difference between '=='' and '===' in JavaScript.",
       answer: "'==' checks for equality, and '===' checks for strict equality (value and type).",
-      options: [
+      choices: [
         "'==' checks for strict equality, and '===' checks for loose equality.",
         "'==' checks for equality, and '===' checks for strict equality (value and type).",
         "'==' checks for strict equality, and '===' checks for deep equality.",
@@ -72,7 +72,7 @@ const questions = [
     {
       question: "What is an if statement and how is it used?",
       answer: "A conditional statement for executing code based on a condition",
-      options: [
+      choices: [
         "A loop statement for iterating over arrays",
         "A conditional statement for executing code based on a condition",
         "A statement for defining a function",
@@ -82,7 +82,7 @@ const questions = [
     {
       question: "How do you loop over an array in JavaScript?",
       answer: "for (item in array) {}",
-      options: [
+      choices: [
         "loop(array) {}",
         "for (item in array) {}",
         "for Every(item => {}) on array",
@@ -92,7 +92,7 @@ const questions = [
     {
       question: "What is the purpose of the 'return' statement in a function?",
       answer: "To specify the value to be returned by the function",
-      options: [
+      choices: [
         "To change the function immediately",
         "To print a value to the console",
         "To declare a variable",
