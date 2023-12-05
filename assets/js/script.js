@@ -1,7 +1,9 @@
 import questions from './questions.js';
 
 // Quiz Variables
-let question, choice, answer, score;
+let question, choice, answer, score, timerInterval;
+let currentQuestion = 0;
+
 
 // Quiz Elements
 const scores = document.querySelector(".scores");
@@ -22,9 +24,22 @@ const feedback = document.querySelector("#feedback");
 
 // Function to start the quiz
 const startQuiz = () => {
+    // Hide Start Screen and show Question Screen
     startScreen.classList.add("hide");
     questionScreen.classList.remove("hide");
+
+    // Set initial values for score and time
+    score = 0;
+    time.textContent = questions.length * 20;
+
+    // Start the timer
+    startTimer();
+
+    // Display first question
+    displayQuestion();
 }
+
+// Function to Display Question
 
 // Event Listener for start button
 startButton.addEventListener("click", startQuiz)
