@@ -47,10 +47,15 @@ const displayQuestion = () => {
         question = questions[currentQuestionIn];
 
         // Update the title
+        questionTitle.textContent = question.question;
 
         // Clear the previous choices
+        choices.innerHTML = "";
 
         // Create current choices and a button for each
+        for (e of question.choices) {
+            
+        }
     }
 }
 // Event Listener for start button
