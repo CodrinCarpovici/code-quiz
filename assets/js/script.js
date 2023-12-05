@@ -45,9 +45,6 @@ const displayQuestion = () => {
     // Assign current questions index value to the current question
     question = questions[currentQuestionIndex];
 
-    //Hide feedback
-    feedback.classList.add("hide");
-
     // Update the title
     questionTitle.textContent = question.question;
 
@@ -75,6 +72,9 @@ const displayQuestion = () => {
 
 // Function to check the answer
 const checkAnswer = (choiceIndex) => {
+  //Clear previous feedback
+  feedback.textContent = "";
+
   if (question.choices[choiceIndex] === question.answer) {
     // Correct answer
     score += 10;
@@ -89,6 +89,11 @@ const checkAnswer = (choiceIndex) => {
     feedback.textContent = "Wrong!";
   }
 
+  // Display feedback briefly
+  setTimeout(() => {
+    feedback.textContent = "";
+  }, 1000);
+
   // Go to next question after answer is clicked
   currentQuestionIndex++;
   displayQuestion();
@@ -96,14 +101,14 @@ const checkAnswer = (choiceIndex) => {
 
 // Function to end the quiz
 const endQuiz = () => {
-    clearInterval(timerInterval);
+  clearInterval(timerInterval);
 
-    // Display the end screen
-    questionScreen.classList.add("hide");
-    endScreen.classList.remove("hide");
+  // Display the end screen
+  questionScreen.classList.add("hide");
+  endScreen.classList.remove("hide");
 
-    // Display the final score
-    finalScore.textContent = score;
+  // Display the final score
+  finalScore.textContent = score;
 };
 
 // Function to Update Timer
