@@ -14,8 +14,16 @@ const displayHighscores = () => {
   }
 };
 
-// Clear Highscores
-clearButton.addEventListener("click", () => {
-  localStorage.clear();
+// Event listener to check for dom content loaded
+document.addEventListener("DOMContentLoaded", () => {
+  // Call displayHighscores when the page is loaded
   displayHighscores();
+
+  // Clear Highscores
+  clearButton.addEventListener("click", () => {
+    // Clear localStorage values
+    localStorage.clear();
+    // Clear text displayed
+    highscoresList.innerHTML = "";
+  });
 });
