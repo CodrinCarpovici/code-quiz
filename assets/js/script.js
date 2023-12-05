@@ -1,12 +1,12 @@
 import questions from "./questions.js";
 
 // Quiz Variables
-let question, choice, answer, score, timerInterval;
+let question, score, timerInterval;
 let currentQuestionIndex = 0;
 
 // Quiz Elements
 const scores = document.querySelector(".scores");
-const highscores = document.querySelector("#highscores");
+const highscoresList = document.querySelector("#highscores");
 const clearButton = document.querySelector("#clear");
 const timer = document.querySelector(".timer");
 const time = document.querySelector("#time");
@@ -83,7 +83,7 @@ const checkAnswer = (choiceIndex) => {
     feedback.textContent = "Correct!";
   } else {
     // Wrong answer, lose 5 seconds on time
-    time.textContent = Math.max(0, parseInt(time.textContent) - 5);
+    time.textContent = Math.max(0, parseInt(time.textContent) - 10);
     // Display feedback
     feedback.classList.remove("hide");
     feedback.textContent = "Wrong!";
@@ -109,6 +109,33 @@ const endQuiz = () => {
 
   // Display the final score
   finalScore.textContent = score;
+
+  // Allow user to save score and initials
+  submitButton.addEventListener("click", saveScore);
+};
+
+// Function to save the score and initials to the local storage
+const saveScore = () => {
+  const playerInitials = initials.value.trim();
+
+  if (playerInitials !== "") {
+    // Get or set highscores from the localStorage
+    const highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    // Add current score to the highscores array
+    highscores.push({ initials: playerInitials, score: score });
+
+    // Sort highscores from highest to lowest
+    highscores.sort((a, b) => b.score - a.score);
+
+    // Update localStorage values
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+
+    // Redirect to highscores.html page
+    window.location.href = "highscores.html";
+  } else {
+    alert("Please enter your initials to store your score!");
+  }
 };
 
 // Function to Update Timer
